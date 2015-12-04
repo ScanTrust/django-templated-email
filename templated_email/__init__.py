@@ -1,8 +1,10 @@
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
+import six
 from templated_email.backends.vanilla_django import TemplateBackend
 
 import warnings
+
 warnings.filterwarnings('error', 'django.utils.importlib')
 
 try:
@@ -11,14 +13,6 @@ try:
 except:
     # Django >= 1.8
     from importlib import import_module
-
-try:
-    basestring  # attempt to evaluate basestring
-    def isstr(s):
-        return isinstance(s, basestring)
-except NameError:
-    def isstr(s):
-        return isinstance(s, str)
 
 
 def get_connection(backend=None, template_prefix=None, template_suffix=None,
@@ -32,7 +26,7 @@ def get_connection(backend=None, template_prefix=None, template_suffix=None,
     """
     # This method is mostly a copy of the backend loader present in django.core.mail.get_connection
     klass_path = backend or getattr(settings, 'TEMPLATED_EMAIL_BACKEND', TemplateBackend)
-    if isstr(klass_path):
+    if isinstance(klass_path, six.string_types):
         try:
             # First check if class name is omited and we have module in settings
             mod = import_module(klass_path)

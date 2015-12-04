@@ -8,8 +8,8 @@ env:
   - DJANGO=1.9
 install:
   - pip install -q Django==$DJANGO --use-mirrors
-  - pip install pep8 --use-mirrors
-  - pip install https://github.com/dcramer/pyflakes/tarball/master
+  - pip install -q six
+  - pip install -q pep8 pyflakes --use-mirrors
 before_script:
   - "pep8 --ignore=E128,E501 templated_email"
   - "pyflakes templated_email"
