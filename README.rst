@@ -5,6 +5,18 @@ Django-Templated-Email
 :Author: Bradley Whittington (http://github.com/bradwhittington, http://twitter.com/darb)
 :Tests: .. image:: https://travis-ci.org/ScanTrust/django-templated-email.svg
 
+
+Maintainers
+=============
+
+This branch is maintained by ScanTrust SA (http://www.scantrust.com/) as a fork of the original
+which is no longer maintained.  The version numbers will differ, but have been incremented based
+on the original.
+
+Maintainers:
+
+    - Andrew Backer (andrew.backer@scantrust.com)
+
 Overview
 =================
 django-templated-email is oriented towards sending templated emails 

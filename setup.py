@@ -19,12 +19,12 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='django-templated-email',
-    version='0.4.10',
+    name='django-templated-email-scantrust',
+    version='0.5.0',
     packages=['templated_email', 'templated_email.backends'],
     author='Bradley Whittington',
     author_email='radbrad182@gmail.com',
-    url='http://github.com/bradwhittington/django-templated-email/',
+    url='http://github.com/Scantrust/django-templated-email/',
     license='MIT',
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
