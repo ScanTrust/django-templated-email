@@ -12,6 +12,9 @@ env:
 cache:
   - pip
 
+before_cache:
+  - rm -f $HOME/.cache/pip/log/debug.log
+
 install:
   - pip install django==$DJANGO six pep8 pyflakes
 
@@ -22,6 +25,3 @@ before_script:
 script:
   - python manage.py test --verbosity=2
 
-after_script:
-  # remove the debug log so we don't update the cache for no reason
-  - rm $HOME/.cache/pip/log/debug.log
