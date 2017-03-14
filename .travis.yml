@@ -1,17 +1,25 @@
 language: python
+
 python:
   - "3.4"
   - "2.7"
+
 env:
   - DJANGO=1.7
   - DJANGO=1.8
   - DJANGO=1.9
+
+cache:
+  - pip
+
 install:
   - pip install -q Django==$DJANGO --use-mirrors
   - pip install -q six
   - pip install -q pep8 pyflakes --use-mirrors
+
 before_script:
   - "pep8 --ignore=E128,E501 templated_email"
   - "pyflakes templated_email"
+
 script:
   - python manage.py test
